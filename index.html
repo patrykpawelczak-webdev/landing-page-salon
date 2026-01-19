@@ -4,12 +4,93 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Salon Bella — Profesjonalne Usługi Kosmetyczne</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+<link rel="icon" href="favicon.ico" type="image/x-icon">
+
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>Salon Bella</h1>
-    <p>Strona w budowie...</p>
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <img src="logo.png" alt="Salon Bella Logo">
+            <h2>Salon Bella</h2>
+            </div>
+            <nav class="nav">
+                <ul class="nav-menu">
+                    <li><a href="#home">Strona Główna</a></li>
+                    <li><a href="#services">Usługi</a></li>
+                    <li><a href="#about">O Nas</a></li>
+                    <li><a href="#contact">Kontakt</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
     
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>Witamy w Salonie Bella</h1>
+            <p>Twoje piękno, nasza pasja. Oferujemy profesjonalne usługi kosmetyczne dostosowane do Twoich potrzeb.</p>
+            <a href="#services" class="btn">Poznaj Nasze Usługi</a>
+        </div>
+    </section>
+
+        <!-- USŁUGI -->
+    <section id="services" class="services">
+        <div class="container">
+            <h2>Nasze Usługi</h2>
+            <div class="services-grid">
+                
+                <!-- Usługa 1 -->
+                <div class="service-card">
+                    <div class="service-icon">
+                    <div class="icon-number">1</div>
+                    </div>
+                    <h3>Manicure & Pedicure</h3>
+                    <p>Profesjonalna pielęgnacja dłoni i stóp. Stylizacja paznokci hybrydą, żelem, klasycznym lakierem.</p>
+                    <span class="price">od 80 zł</span>
+                </div>
+
+                <!-- Usługa 2 -->
+                <div class="service-card">
+                    <div class="service-icon">
+                    <div class="icon-number">2</div>
+                    </div>
+                    <h3>Pielęgnacja Twarzy</h3>
+                    <p>Zabiegi oczyszczające, nawilżające i odmładzające dostosowane do Twojego typu skóry.</p>
+                    <span class="price">od 120 zł</span>
+                </div>
+
+                <!-- Usługa 3 -->
+                <div class="service-card">
+                    <div class="service-icon">
+                    <div class="icon-number">3</div>
+                    </div>
+                    <h3>Depilacja</h3>
+                    <p>Profesjonalna depilacja woskiem i pastą cukrową. Gładka skóra na długo.</p>
+                    <span class="price">od 50 zł</span>
+                </div>
+
+                <!-- Usługa 4 -->
+                <div class="service-card">
+                    <div class="service-icon">
+                    <div class="icon-number">4</div>
+                    </div>
+                    <h3>Makijaż</h3>
+                    <p>Makijaż dzienny, wieczorowy, ślubny. Podkreślimy Twoje naturalne piękno.</p>
+                    <span class="price">od 150 zł</span>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
     <script src="script.js"></script>
 </body>
 </html>
