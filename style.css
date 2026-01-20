@@ -104,14 +104,30 @@ body {
 
 /* ========== HERO ========== */
 .hero {
-    background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
-    min-height: calc(100vh - 80px);
+    background: linear-gradient(
+        135deg,
+        var(--primary),
+        var(--accent),
+        var(--secondary),
+        var(--primary)
+    );
+    background-size: 300% 300%;
+    animation: diamondShimmer 8s ease-in-out infinite;
+    animation: diamondShimmer 6s ease-in-out infinite;
+    min-height: 60vh;
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
     color: var(--white);
     position: relative;
+}
+
+@keyframes diamondShimmer {
+    0% { background-position: 0% 50%; }
+    33% { background-position: 50% 50%; }
+    66% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
 }
 
 .hero-content {
@@ -121,17 +137,19 @@ body {
 
 .hero h1 {
     font-family: 'Playfair Display', serif;
-    font-size: 3.5rem;
+    font-size: 3rem;
     margin-bottom: 1.5rem;
     font-weight: 700;
     animation: fadeInUp 1s ease;
+    line-height: 1.2;
 }
 
 .hero p {
-    font-size: 1.3rem;
+    font-size: 1.4rem;
     margin-bottom: 2.5rem;
     opacity: 0.95;
     animation: fadeInUp 1.2s ease;
+    line-height: 1.6;
 }
 
 /* Przycisk CTA */
@@ -181,49 +199,49 @@ body {
     color: var(--primary);
 }
 
-/* Grid 4 kolumny (na desktop) */
 .services-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 2.5rem;
 }
 
-/* Pojedyncza karta */
+/* Karta — FLEXBOX dla identycznego layoutu */
 .service-card {
-    background: var(--white);
+    background: #ffffff;
     border-top: 4px solid var(--primary);
-    padding: 2.5rem 2rem;
+    padding: 2.5rem 2rem 0 2rem;
     border-radius: 15px;
     text-align: center;
     transition: all 0.3s ease;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+    display: flex;
+    flex-direction: column;
 }
 
 .service-card:hover {
     transform: translateY(-10px);
-    box-shadow: 0 15px 40px rgba(155, 89, 182, 0.2);
+    box-shadow: 0 15px 40px rgba(155, 89, 182, 0.25);
 }
 
+/* Ikona gradient box */
 .service-icon {
     margin-bottom: 1.5rem;
+    display: flex;
+    justify-content: center;
 }
 
 .icon-number {
-    width: 70px;
-    height: 70px;
-    margin: 0 auto;
     background: linear-gradient(135deg, var(--primary), var(--accent));
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 2rem;
-    font-weight: 700;
     color: #ffffff;
-    box-shadow: 0 5px 15px rgba(155, 89, 182, 0.3);
+    padding: 0.6rem 1.8rem;
+    border-radius: 25px;
+    font-weight: 600;
+    font-size: 2rem;
+    width: fit-content;
+    box-shadow: 0 3px 10px rgba(155, 89, 182, 0.2);
 }
 
-/* Tytuł usługi */
+/* Tytuł */
 .service-card h3 {
     font-family: 'Playfair Display', serif;
     font-size: 1.5rem;
@@ -231,13 +249,14 @@ body {
     margin-bottom: 1rem;
 }
 
-/* Opis */
+/* Opis — zajmuje całą dostępną przestrzeń */
 .service-card p {
     color: var(--dark);
     opacity: 0.8;
     line-height: 1.6;
-    margin-bottom: 1.5rem;
+    margin-bottom: 2.5rem;
     font-size: 0.95rem;
+    flex-grow: 1;
 }
 
 /* Cena */
@@ -245,15 +264,15 @@ body {
     display: inline-block;
     background: linear-gradient(135deg, var(--primary), var(--accent));
     color: #ffffff;
-    padding: 0.5rem 1.5rem;
+    padding: 0.6rem 1.8rem;
+    margin-top: auto;
+    margin-bottom: 1.5rem;
     border-radius: 25px;
     font-weight: 600;
     font-size: 1rem;
-    margin-top: 1.5rem;
     box-shadow: 0 3px 10px rgba(155, 89, 182, 0.2);
 }
 
-/* Responsywność — mobile */
 @media (max-width: 768px) {
     .services {
         padding: 4rem 1.5rem;
