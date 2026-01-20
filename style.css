@@ -102,6 +102,36 @@ body {
     width: 100%;
 }
 
+/* Hamburger menu (ukryty na desktop) */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    z-index: 1001;
+}
+
+.hamburger span {
+    width: 25px;
+    height: 3px;
+    background: var(--primary);
+    border-radius: 3px;
+    transition: all 0.3s ease;
+}
+
+/* Hamburger aktywny (X) */
+.hamburger.active span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+
+.hamburger.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(7px, -6px);
+}
+
 /* ========== HERO ========== */
 .hero {
     background: linear-gradient(
@@ -273,17 +303,106 @@ body {
     box-shadow: 0 3px 10px rgba(155, 89, 182, 0.2);
 }
 
+/* ========== RESPONSYWNOŚĆ MOBILE ========== */
 @media (max-width: 768px) {
+    
+    /* === HEADER === */
+    .header .container {
+        justify-content: center;
+        position: relative;
+    }
+    
+    .logo {
+        margin: 0 auto;
+    }
+    
+    .logo img {
+        width: 40px;
+        height: 40px;
+    }
+    
+    .logo h2 {
+        font-size: 1.5rem;
+    }
+    
+    /* Menu ukryte domyślnie */
+    .nav-menu {
+        position: fixed;
+        top: 0;
+        left: -100%;
+        width: 70%;
+        height: 100vh;
+        background: var(--white);
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 2rem;
+        transition: left 0.3s ease;
+        z-index: 1000;
+        box-shadow: 2px 0 10px rgba(0,0,0,0.1);
+    }
+    
+    /* Menu aktywne (wysunięte) */
+    .nav-menu.active {
+        left: 0;
+    }
+    
+    /* Hamburger widoczny */
+    .hamburger {
+        display: flex;
+        position: absolute;
+        right: 20px;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+    
+    /* === HERO === */
+    .hero {
+        min-height: 50vh;
+    }
+    
+    .hero h1 {
+        font-size: 2.4rem; /* -20% z 3rem */
+    }
+    
+    .hero p {
+        font-size: 1.12rem; /* -20% z 1.4rem */
+    }
+    
+    .btn {
+        font-size: 0.88rem; /* -20% z 1.1rem */
+        padding: 0.8rem 2rem;
+    }
+    
+    /* === USŁUGI === */
     .services {
         padding: 4rem 1.5rem;
     }
     
     .services h2 {
-        font-size: 2rem;
+        font-size: 2rem; /* -20% z 2.5rem */
     }
     
     .services-grid {
         grid-template-columns: 1fr;
         gap: 2rem;
+    }
+    
+    .service-card h3 {
+        font-size: 1.2rem; /* -20% z 1.5rem */
+    }
+    
+    .service-card p {
+        font-size: 0.76rem; /* -20% z 0.95rem */
+    }
+    
+    .price {
+        font-size: 0.8rem; /* -20% z 1rem */
+        padding: 0.5rem 1.4rem;
+    }
+    
+    .icon-number {
+        font-size: 1.6rem; /* -20% z 2rem */
+        padding: 0.5rem 1.4rem;
     }
 }
