@@ -113,8 +113,7 @@ body {
     );
     background-size: 300% 300%;
     animation: diamondShimmer 8s ease-in-out infinite;
-    animation: diamondShimmer 6s ease-in-out infinite;
-    min-height: 60vh;
+    min-height: 55vh;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -142,6 +141,7 @@ body {
     font-weight: 700;
     animation: fadeInUp 1s ease;
     line-height: 1.2;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
 }
 
 .hero p {
@@ -150,6 +150,7 @@ body {
     opacity: 0.95;
     animation: fadeInUp 1.2s ease;
     line-height: 1.6;
+    text-shadow: 0 1px 5px rgba(0, 0, 0, 0.2);
 }
 
 /* Przycisk CTA */
@@ -185,9 +186,45 @@ body {
     }
 }
 
+/* ========== SEPARATOR SEKCJI (LINIA + KROPKA) ========== */
+.section-separator {
+    position: relative;
+    width: 100%;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 2rem 0;
+}
+
+.separator-line {
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(
+        90deg,
+        transparent 0%,
+        var(--primary) 25%,
+        var(--accent) 50%,
+        var(--primary) 75%,
+        transparent 100%
+    );
+    border-radius: 2px;
+}
+
+/* Diament CSS */
+.dot {
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+    transform: rotate(45deg);
+    box-shadow: 0 0 10px rgba(155, 89, 182, 0.5);
+}
+
+
 /* ========== USŁUGI ========== */
 .services {
-    padding: 6rem 2rem;
+    padding: 0 2rem;
     background: var(--white);
 }
 
