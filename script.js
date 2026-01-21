@@ -14,3 +14,15 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         }
     });
 });
+
+// ========== PROGRESS BAR (MOBILE) ==========
+const progressBar = document.querySelector('.scroll-progress-bar');
+
+window.addEventListener('scroll', () => {
+    const windowHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+    const scrolled = (window.scrollY / windowHeight) * 100;
+    
+    if (progressBar) {
+        progressBar.style.width = scrolled + '%';
+    }
+});
