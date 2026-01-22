@@ -320,7 +320,7 @@ body {
 /* ========== O NAS ========== */
 .about {
     padding: 4rem 2rem;
-    background: var(--light);
+    background: linear-gradient(135deg, #f5f0ff 0%, #fff5f8 100%);
 }
 
 .about h2 {
@@ -338,16 +338,28 @@ body {
 
 .about-content {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 3rem;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 4rem;
     align-items: center;
+}
+
+.about-text {
+    order: 1;
+}
+
+.about-image {
+    order: 2;
 }
 
 .about-text p {
     margin-bottom: 1.5rem;
-    line-height: 1.8;
+    line-height: 1.9;
     color: var(--dark);
-    font-size: 1rem;
+    font-size: 1.05rem;
+}
+
+.about-text p:last-child {
+    margin-bottom: 0;
 }
 
 .about-text strong {
@@ -358,18 +370,19 @@ body {
 .about-image img {
     width: 100%;
     border-radius: 15px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 10px 40px rgba(155, 89, 182, 0.2);
     transition: transform 0.3s ease;
 }
 
 .about-image img:hover {
-    transform: scale(1.05);
+    transform: scale(1.03);
 }
 
 /* ========== OPINIE ========== */
 .reviews {
     padding: 4rem 2rem;
     background: var(--light);
+    overflow: hidden;
 }
 
 .reviews h2 {
@@ -385,43 +398,74 @@ body {
     letter-spacing: 1px;
 }
 
-.reviews-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 2rem;
+.reviews-slider {
+    position: relative;
+    max-width: 800px;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+.review-track {
+    display: flex;
+    transition: transform 0.5s ease;
 }
 
 .review-card {
+    min-width: 100%;
     background: #fff;
-    padding: 2rem;
+    padding: 3rem 2.5rem;
     border-radius: 15px;
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
-    transition: all 0.3s ease;
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.1);
     border-left: 4px solid var(--primary);
-}
-
-.review-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 30px rgba(155, 89, 182, 0.2);
 }
 
 .stars {
     color: #ffc107;
-    font-size: 1.5rem;
-    margin-bottom: 1rem;
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+    text-align: center;
 }
 
 .review-text {
     font-style: italic;
     color: var(--dark);
-    line-height: 1.7;
-    margin-bottom: 1rem;
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+    font-size: 1.1rem;
+    text-align: center;
 }
 
 .review-author {
-    text-align: right;
+    text-align: center;
     font-weight: 600;
     color: var(--primary);
+    font-size: 1rem;
+}
+
+/* Nawigacja */
+.slider-nav {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.slider-btn {
+    background: linear-gradient(135deg, var(--primary), var(--accent));
+    color: white;
+    border: none;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    font-size: 2rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 3px 15px rgba(155, 89, 182, 0.3);
+}
+
+.slider-btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 5px 20px rgba(155, 89, 182, 0.5);
 }
 
 /* ========== KONTAKT ========== */
@@ -526,9 +570,15 @@ body {
 
 .footer-social h4 {
     font-family: 'Playfair Display', serif;
-    font-size: 1.3rem;
+    font-size: 2rem;
     margin-bottom: 1.5rem;
     color: var(--light);
+    text-align: center;
+    -webkit-background-clip: text;
+    background-clip: text;
+    text-shadow: 0 2px 15px rgba(155, 89, 182, 0.3);
+    font-weight: 700;
+    letter-spacing: 1px; 
 }
 
 .social-links {
@@ -548,10 +598,13 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    color: var(--light);
-    font-size: 1.2rem;
-    text-decoration: none;
     transition: all 0.3s ease;
+    padding: 10px;
+}
+
+.social-links a img {
+    width: 100%;
+    height: 100%;
 }
 
 .social-links a:hover {
@@ -745,50 +798,52 @@ body {
 }
 
     /* === O NAS === */
-    .about {
-        padding: 3rem 1.5rem;
-    }
+.about {
+    padding: 3rem 1.5rem;
+}
 
-    .about h2 {
-        font-size: 2.2rem;
-        margin-bottom: 2rem;
-    }
+.about h2 {
+    font-size: 2.2rem;
+    margin-bottom: 2rem;
+}
 
-    .about-content {
-        grid-template-columns: 1fr;
-        gap: 2rem;
-    }
+.about-content {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+}
 
-    .about-text p {
-        font-size: 0.9rem;
-    }
+.about-text p {
+    font-size: 0.9rem;
+    line-height: 1.7;
+}
 
     /* === OPINIE === */
-    .reviews {
-        padding: 3rem 1.5rem;
-    }
+.reviews {
+    padding: 3rem 1.5rem;
+}
 
-    .reviews h2 {
-        font-size: 2.2rem;
-        margin-bottom: 2rem;
-    }
+.reviews h2 {
+    font-size: 2.2rem;
+    margin-bottom: 2rem;
+}
 
-    .reviews-grid {
-        grid-template-columns: 1fr;
-        gap: 1.5rem;
-    }
+.review-card {
+    padding: 2rem 1.5rem;
+}
 
-    .review-card {
-        padding: 1.5rem;
-    }
+.stars {
+    font-size: 1.4rem;
+}
 
-    .stars {
-        font-size: 1.2rem;
-    }
+.review-text {
+    font-size: 0.95rem;
+}
 
-    .review-text {
-        font-size: 0.85rem;
-    }
+.slider-btn {
+    width: 40px;
+    height: 40px;
+    font-size: 1.5rem;
+}
 
     /* === KONTAKT === */
     .contact {

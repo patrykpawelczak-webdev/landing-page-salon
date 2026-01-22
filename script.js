@@ -26,3 +26,29 @@ window.addEventListener('scroll', () => {
         progressBar.style.width = scrolled + '%';
     }
 });
+
+// ========== SLIDER OPINII ==========
+let currentSlide = 0;
+const track = document.querySelector('.review-track');
+const slides = document.querySelectorAll('.review-card');
+const totalSlides = slides.length;
+
+document.querySelector('.slider-btn.next').addEventListener('click', () => {
+    currentSlide = (currentSlide + 1) % totalSlides;
+    updateSlider();
+});
+
+document.querySelector('.slider-btn.prev').addEventListener('click', () => {
+    currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+    updateSlider();
+});
+
+function updateSlider() {
+    track.style.transform = `translateX(-${currentSlide * 100}%)`;
+}
+
+// Auto-play co 5 sekund
+setInterval(() => {
+    currentSlide = (currentSlide + 1) % totalSlides;
+    updateSlider();
+}, 5000);
