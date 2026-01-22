@@ -27,22 +27,70 @@ window.addEventListener('scroll', () => {
     }
 });
 
-// ========== SLIDER OPINII ==========
-let currentSlide = 0;
+// ========== SLIDER OPINII (pauza przy hover, auto 8s) ==========
 const track = document.querySelector('.review-track');
 const slides = document.querySelectorAll('.review-card');
-const totalSlides = slides.length;
+const dotsContainer = document.querySelector('.slider-dots');
 
-document.querySelector('.slider-btn.next').addEventListener('click', () => {
-    currentSlide = (currentSlide + 1) % totalSlides;
-    updateSlider();
-});
+// Sprawdź czy elementy istnieją
+if (track && slides.length > 0 && dotsContainer) {
+    let currentSlide = 0;
+    const totalSlides = slides.length;
+    let autoPlayInterval;
 
-document.querySelector('.slider-btn.prev').addEventListener('click', () => {
-    currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
-    updateSlider();
-});
+    // Tworzenie kropek
+    for (let i = 0; i < totalSlides; i++) {
+        const dot = document.createElement('span');
+        dot.classList.add('dot');
+        if (i === 0) dot.classList.add('active');
+        dot.addEventListener('click', () => {
+            currentSlide = i;
+            updateSlider();
+            resetAutoPlay();
+        });
+        dotsContainer.appendChild(dot);
+    }
 
+    const dots = document.querySelectorAll('.slider-dots .dot');
+
+    function updateSlider() {
+        track.style.transform = `translateX(-${currentSlide * 100}%)`;
+        
+        // Aktualizacja kropek
+        dots.forEach((dot, index) => {
+            dot.classList.toggle('active', index === currentSlide);
+        });
+    }
+
+    function nextSlide() {
+        currentSlide = (currentSlide + 1) % totalSlides;
+        updateSlider();
+    }
+
+    // Auto-play co 8 sekund
+    function startAutoPlay() {
+        autoPlayInterval = setInterval(nextSlide, 8000);
+    }
+
+    function stopAutoPlay() {
+        clearInterval(autoPlayInterval);
+    }
+
+    function resetAutoPlay() {
+        stopAutoPlay();
+        startAutoPlay();
+    }
+
+    // Pauza przy hover
+    const slider = document.querySelector('.reviews-slider');
+    if (slider) {
+        slider.addEventListener('mouseenter', stopAutoPlay);
+        slider.addEventListener('mouseleave', startAutoPlay);
+    }
+
+    // Start
+    startAutoPlay();
+}
 function updateSlider() {
     track.style.transform = `translateX(-${currentSlide * 100}%)`;
 }
